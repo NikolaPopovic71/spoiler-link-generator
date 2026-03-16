@@ -32,17 +32,9 @@ The particle effect is built from scratch using the **Canvas API** and **CSS blu
 - Canvas API (particle engine)
 - Base64 URL encoding (`btoa` / `atob`)
 
-## Deploy
-
-This is a single `index.html` file. Deploy anywhere:
-
-- **GitHub Pages** — push to repo, enable Pages in settings
-- **Netlify** — drag and drop the file
-- **Any static host** — just upload
-
 ## Local development
 
-No build step needed. Open `index.html` directly in a browser, or use any static server:
+No build step needed. Open `index.html` directly in a browser via `Live Server`, or use any static server:
 
 ```bash
 npx serve .
