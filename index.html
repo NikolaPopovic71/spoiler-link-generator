@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpoilerDrop — Hide your words</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- CREATOR PAGE -->
+    <div id="creator-page" class="app">
+      <header>
+        <div class="logo">
+          <div class="logo-dot"></div>
+          SpoilerDrop
+        </div>
+        <div class="tag">v1.0</div>
+      </header>
+
+      <main>
+        <div class="hero">
+          <h1>Hide your words.<br /><span>Share the mystery.</span></h1>
+          <p>
+            Type any text, generate a spoiler link.<br />Anyone who opens it
+            sees particles — until they click.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="dot dot-r"></div>
+            <div class="dot dot-y"></div>
+            <div class="dot dot-g"></div>
+            <span class="card-label">New Spoiler</span>
+          </div>
+          <div class="card-body">
+            <textarea
+              id="spoiler-input"
+              placeholder="Type or paste the text you want to hide..."
+              maxlength="1000"
+            ></textarea>
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              "
+            >
+              <button
+                class="btn-clear"
+                id="clear-btn"
+                onclick="clearInput()"
+                style="display: none"
+              >
+                ✕ Clear
+              </button>
+              <div
+                id="char-count"
+                style="
+                  font-size: 0.65rem;
+                  color: var(--muted);
+                  margin-left: auto;
+                "
+              >
+                0 / 1000
+              </div>
+            </div>
+            <button class="btn btn-primary" onclick="generateLink()">
+              ⚡ Generate Spoiler Link
+            </button>
+
+            <div class="result" id="result">
+              <div class="result-label">Your spoiler link</div>
+              <div class="link-row">
+                <div class="link-display" id="link-display"></div>
+                <button class="btn-copy" id="copy-btn" onclick="copyLink()">
+                  Copy
+                </button>
+              </div>
+              <button class="btn-preview" onclick="previewSpoiler()">
+                ↗ Preview spoiler
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <span>SpoilerDrop — no backend, no tracking</span>
+        <span>text lives in the URL</span>
+      </footer>
+    </div>
+
+    <!-- VIEWER MODAL -->
+    <div id="viewer">
+      <div class="viewer-card">
+        <div class="viewer-header">
+          <span class="viewer-title">Spoiler — click to reveal</span>
+          <button class="btn-close" onclick="closeViewer()">×</button>
+        </div>
+        <div class="viewer-body">
+          <div style="position: relative; display: inline-block; width: 100%">
+            <div class="spoiler-text" id="modal-text"></div>
+            <canvas class="spoiler-canvas" id="modal-canvas"></canvas>
+          </div>
+          <div class="spoiler-hint" id="modal-hint">↑ click text to reveal</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIEW PAGE (opened via link) -->
+    <div id="view-page">
+      <div class="view-label">someone hid a message for you</div>
+
+      <div class="logo" style="justify-content: center">
+        <div class="logo-dot"></div>
+        SpoilerDrop
+      </div>
+
+      <div class="view-spoiler-container">
+        <div style="position: relative; display: inline-block; width: 100%">
+          <div class="spoiler-text" id="view-text"></div>
+          <canvas class="spoiler-canvas" id="view-canvas"></canvas>
+        </div>
+        <div class="spoiler-hint" id="view-hint">↑ click to reveal</div>
+      </div>
+
+      <button class="view-back" onclick="goToCreator()">
+        + Create your own spoiler
+      </button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
