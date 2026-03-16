@@ -2,7 +2,7 @@
 
 **Hide any text behind animated particles. Share a link. Let them click to reveal.**
 
-→ **[Live Demo](your-github-pages-url)**
+→ **[Live Demo](https://nikolapopovic71.github.io/spoiler-link-generator/)**
 
 ---
 
