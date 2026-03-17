@@ -2,8 +2,6 @@
 
 **Hide any text behind animated particles. Share a link. Let them click to reveal.**
 
-→ **[Live Demo](https://nikolapopovic71.github.io/spoiler-link-generator/)**
-
 ---
 
 ## What it does
